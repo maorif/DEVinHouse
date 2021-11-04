@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualiza secções</title>
+</head>
+<body>
+    <div class="top">
+        <div class="info">
+            <section>
+                <h3>Número de participantes<br><label class="number">0</label></h3><br>
+
+            </section>
+
+            <section>
+                <h3>Idade média dos participantes<br><label class="number">0</label></h3><br>
+
+            </section>
+
+            <section>
+                <h3>Número de satisfeitos<br><label>0</label class="number"></h3><br>
+                
+            </section>
+        </div>
+        <div class="btn">
+            <button onclick="Participar()">Participar</button>
+        </div>
+    </div>
+
+    <div class="form">
+        <h3>Preencha os campos para participar</h3>
+        <input class="data" type="text" placeholder="Digite seu nome">
+        <input class="data" type="number" placeholder="Sua satisfação de 1 a 10" min="1" max="10">
+        <input class="data" type="number" placeholder="Digite sua idade" min="1" max="110">
+        <br>
+        <label>Incluir na lista de satisfeitos?</label>
+        <select class="data" id="satisfação">
+            <option value="sim">Sim</option>
+            <option value="não">Não</option>
+        </select>
+        <button onclick="Enviar()">Enviar</button>
+        <br>
+        <h4 class="msg"></h4>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,1 +1,1 @@
-Lista de exercícios da semana 0 do primeiro módulo da DEVinHouse
+Lista de exercícios do primeiro módulo da DEVinHouse
