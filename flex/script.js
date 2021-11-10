@@ -3,7 +3,15 @@ function AddItem(){
     let itens = document.getElementsByClassName("flex-item");
     let newLi = document.createElement("li");
     newLi.className = "flex-item";
-    let newNumb = document.createTextNode(`${itens.length+1}`);
+
+    let newNumb;
+    if(itens.length == 0){
+        newNumb = document.createTextNode(`1`);
+    }
+    else {
+        newNumb = document.createTextNode(`${itens.length+1}`);
+    }    
+
     let newInputNumb = document.createElement("input");
     newInputNumb.className = "order";
     newInputNumb.type = "number";
@@ -20,6 +28,8 @@ function AddItem(){
     //ChangeSingleBlockRandom();
     ChangeSingleBlockColor();
     ChangeSingleBlockOrder();
+
+    return newLi;
 }
 
 function DeleteItem(){
@@ -46,17 +56,7 @@ function ChangeJustify(){
     let container = document.getElementsByClassName("flex-container")[0];
     let justify = document.getElementById("justify");
     
-    switch(true){
-        case (justify.value == "left"):
-            container.style.justifyContent = "left";
-            break;
-        case (justify.value == "center"):
-            container.style.justifyContent = "center";
-            break;
-        case (justify.value == "right"):
-            container.style.justifyContent = "right";
-            break;
-    }
+    container.style.justifyContent = justify.value;
 }
 
 
@@ -82,6 +82,13 @@ function ChangeSingleBlockColor(){
     });
 }
 
+window.onload = SetGlobalFlexOrder();
+function SetGlobalFlexOrder(){
+    document.querySelectorAll('.flex-item').forEach(item => {
+        item.style.order = 1;
+    })
+}
+
 window.onload = ChangeSingleBlockOrder();
 function ChangeSingleBlockOrder(){
     document.querySelectorAll('.flex-item').forEach(item => {
@@ -91,26 +98,91 @@ function ChangeSingleBlockOrder(){
     });
 }
 
+window.onload = SaveOnPageChange();
+function SaveOnPageChange(){
+    document.querySelectorAll(".flex-container")[0].addEventListener("change", () => {
+        SaveLayoutToLocalStorage();
+    })
 
+    document.querySelectorAll(".click-btn").forEach(element => {
+        element.addEventListener("click", () => {
+            SaveLayoutToLocalStorage();
+        })
+    })
+
+    document.querySelectorAll(".input-btn").forEach(element => {
+        element.addEventListener("change", () => {
+            SaveLayoutToLocalStorage();
+        })
+    })
+}
+
+
+//window.onresize = SaveLayoutToLocalStorage();
 function SaveLayoutToLocalStorage(){
 
-    let container = querySelectorAll(".flex-container");
-    let itens = querySelectorAll(".flex-item");
+    let container = document.querySelectorAll(".flex-container");
+    let itens = document.querySelectorAll(".flex-item");
+    let data = {};
 
     let containerData = {
-        lenght : itens.length,
-        order : container.style.flexFlow,
-        justify: container.style.justifyContent,
+        len : itens.length,
+        flow : getCSSProperty(container[0], "flex-flow"),
+        justify: getCSSProperty(container[0], "justify-content"),
         color : document.getElementById("color").value
     }
     
-    let data = [];
-    for(let item in itens){
+    let itensData = [];
+    for(let i=0; i<itens.length; i++){
+        
         let itemInfo = {
-            text : item.textContet,
-            inputOrder 
-        }
+            text : itens[i].innerText,
+            inputOrder : getCSSProperty(itens[i], "order"),
+            color : getCSSProperty(itens[i], "background-color")
+        };
+
+        itensData.push(itemInfo);
     }
+
+    data.containerData = containerData;
+    data.itensData = itensData;
+
+    localStorage.setItem("pageData", JSON.stringify(data));
+}
+
+window.onload = LoadLocalStorage();
+function LoadLocalStorage(){
+
+    let data = JSON.parse(localStorage.getItem("pageData"));
+    if(data == null){
+        return;
+    }
+    let container = document.querySelectorAll(".flex-container");
+    let itensData = data.itensData; 
+    
+
+    container[0].style.flexFlow = data.containerData.flow;
+    container[0].style.justifyContent = data.containerData.justify;
+
+    for(i=0; i<data.itensData.length; i++){
+        
+        AddItem();
+        let item = document.querySelectorAll(".flex-item")[i];
+        item.textContet = itensData[i].text;
+        item.style.order = itensData[i].inputOrder;
+        item.style.backgroundColor = itensData[i].color;
+        item.children[1].value = itensData[i].color;
+    }
+
+}
+
+function getCSSProperty(element, property){
+    return window.getComputedStyle(element).getPropertyValue(property);
+}
+
+
+function Clear(){
+    localStorage.clear();
 }
 /*
 

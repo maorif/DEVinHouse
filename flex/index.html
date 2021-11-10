@@ -8,55 +8,63 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="AddItem()">add</button>
-    <button onclick="DeleteItem()">remove</button>
-    <button onclick="InvertOrder()">invert</button>
-    <select id="justify" value="center" onchange="ChangeJustify()">
-        <option value="center">center</option>
-        <option value="left">left</option>
-        <option value="right">right</option>
-    </select>
-    <input id="color" value="#ff6347" type="color" onchange="ChangeColor()">
-    <hr>
+    <div class="btn-div">
+        <button class="click-btn" onclick="AddItem()">add</button>
+        <button class="click-btn" onclick="DeleteItem()">remove</button>
+        <button class="click-btn" onclick="InvertOrder()">invert</button>
+        <select class="input-btn" id="justify" onchange="ChangeJustify()">
+            <option value="center">center</option>
+            <option value="left">left</option>
+            <option value="right">right</option>
+            <option value="space-between">space-between</option>
+            <option value="space-around">space-around</option>
+            <option value="space-evenly">space-evenly</option>
+
+        </select>
+        <input class="input-btn" id="color" value="#ff6347" type="color" onchange="ChangeColor()">
+        
+        <button class="click-btn" id="clear" onclick="Clear()">Clear</button>
+    </div>
     
     
     <ul class="flex-container">
-
+        <!--
         <li class="flex-item">
             1
-            <input class="order" type="number">
+            <input class="f-order" type="number" value="1">
             <input class="s-color" type="color" value="#ff6347">
         </li>
             
         <li class="flex-item">
             2
-            <input class="order" type="number">
+            <input class="f-order" type="number" value="1">
             <input class="s-color" type="color" value="#ff6347">
         </li>
 
         <li class="flex-item">
             3
-            <input class="order" type="number">
+            <input class="f-order" type="number" value="1">
             <input class="s-color" type="color" value="#ff6347">
         </li>
 
         <li class="flex-item">
             4
-            <input class="order" type="number">
+            <input class="f-order" type="number" value="1">
             <input class="s-color" type="color" value="#ff6347">
         </li>
 
         <li class="flex-item">
             5
-            <input class="order" type="number">
+            <input class="f-order" type="number" value="1">
             <input class="s-color" type="color" value="#ff6347">
         </li>
 
         <li class="flex-item">
             6
-            <input class="order" type="number">
+            <input class="f-order" type="number" value="1">
             <input class="s-color" type="color" value="#ff6347">
         </li>
+        -->
     </ul>
 
    
