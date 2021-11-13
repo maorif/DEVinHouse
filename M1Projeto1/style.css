@@ -1,0 +1,92 @@
+html, body{
+    padding: 0;
+    margin: 0;
+}
+
+main{
+    display: flex;
+    flex-flow: column;
+    row-gap: 20px;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: royalblue;
+    height: 100%;
+    
+}
+
+.mid{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    border: solid 1px black;
+    margin: 0 15px 0 15px;
+}
+
+.upper-mid{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.upper-mid > input{
+    width: 75%;
+    height: 40px;
+}
+
+.lower-mid{
+    display: flex;
+    justify-content: center;
+
+}
+.list{
+    border: 1px solid black;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    justify-items: center;
+    row-gap: 0;
+    padding: 0;
+}
+
+.list-row {
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.to-do{
+    padding-left: 5px;
+    text-align: left;
+    border: 1px solid black;
+    width: 90%;
+    height: 30px;
+
+    font-size: larger;
+}
+
+.checkbox{
+    width: 30px;
+    height: 30px;
+    
+    cursor: pointer;
+}
+
+i{  
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+i:hover{
+    background-color: lightcoral;
+}
+
