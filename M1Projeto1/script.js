@@ -1,16 +1,20 @@
 
+//Adiciona uma tarefa à lista
 function Add(){
     
     let newInput = document.querySelectorAll("input")[0];
 
     NewRow(newInput.value);
-    newInput.value = "";
-    SaveListToLocalStorage();
+    newInput.value = "";        //limpa o input após adicionar tarefa
+    SaveListToLocalStorage();   //Salva a lista com a tarefa nova
+    DeleteRow();                //Aplica função de deletar à lista atualizada
 }
 
+//cria linha e appenda à lista de tarefas
 function NewRow(newInput, done=false){
 
-    if(newInput != ""){
+    
+    if(newInput != ""){     //se o input estiver vazio não adiciona linha
         let newRow = document.createElement("li");
         newRow.className = "list-row";
     
@@ -18,7 +22,7 @@ function NewRow(newInput, done=false){
         newText.className = "to-do";
         newText.textContent = newInput;
     
-        if(done){
+        if(done){   //se tarefa estiver feita (done = true) -> texto riscado
             newText.style.textDecoration = "line-through";
         }
 
@@ -36,16 +40,15 @@ function NewRow(newInput, done=false){
 
         document.querySelectorAll(".list")[0].appendChild(newRow);
     };
-
-
 };
 
-window.onload = SaveOnListChange();
+//Salva lista atualizada em mudanças na lista
+SaveOnListChange();
 function SaveOnListChange(){
 
-    
+    //adiciona evento de riscar tarefa se checar checkbox
     document.querySelectorAll('.list')[0].addEventListener("change", () => {
-        
+    
         let checkBoxes = document.querySelectorAll('.checkbox');
         let rows = document.querySelectorAll('.list-row');
         for(let i=0; i<checkBoxes.length; i++){
@@ -59,14 +62,12 @@ function SaveOnListChange(){
 
             }
         }
-
+        //Salva ao final
         SaveListToLocalStorage();
     })
-
-  // how to remove row ??
 }
 
-let toDoList = JSON.parse(localStorage.getItem("to-do-list"));
+//Função para salvar lista no localstorage
 function SaveListToLocalStorage(){
     
     let list = document.querySelectorAll(".to-do");
@@ -89,7 +90,8 @@ function SaveListToLocalStorage(){
     localStorage.setItem("to-do-list", JSON.stringify(toDoList));
 }
 
-window.onload = LoadListFromLocalStorage();
+//Carrega a lista a partir do localstorage
+LoadListFromLocalStorage();
 function LoadListFromLocalStorage(){
 
     let toDoList = JSON.parse(localStorage.getItem("to-do-list"));
@@ -102,4 +104,25 @@ function LoadListFromLocalStorage(){
 
         NewRow(toDoList[i].text, toDoList[i].done);
     }
+}
+
+//adiciona função de deletar tarefa da lista ao clicar botão lixeira
+DeleteRow();
+function DeleteRow(){
+
+    document.querySelectorAll(".fa-trash").forEach(icon => {
+        icon.addEventListener("click", () => {
+            
+            let confirm = window.confirm("Tem certeza que deseja excluir esta tarefa?");
+            
+            if(confirm){
+                icon.parentElement.remove();
+                SaveListToLocalStorage();
+            }
+
+            else{
+                return;
+            }
+        })
+    })
 }
