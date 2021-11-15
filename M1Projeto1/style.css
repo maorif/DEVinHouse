@@ -1,15 +1,56 @@
 /*Color Pallet: https://colorhunt.co/palette/eeebddd8b6a4630000000000*/
+*{
+    box-sizing: border-box;
+}
 
-html, body{
+body{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
     padding: 0;
-    margin: 2%;
+    font-family: sans-serif;
+    font-style: verdana;
+    background-color: rgb(216, 182, 164);
+}
+
+header{
+    width: 100%;
+    padding: 10px 20px 0 10px;
+    top: 0;
+    margin-bottom: 30px;
+    position: sticky;
+    z-index: 1;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    color: rgb(238, 235, 221);
+    background-color: rgb(99, 0, 0);
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    opacity: 1;
+    font-size: large;
+}
+
+.right-header > a{
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+}
+
+.left-header{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: baseline;
+    cursor: pointer;
 }
 
 main{
-    font-family: sans-serif;
-    font-style: verdana;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
-    padding-top: 15px;
+    padding-top: 12px;
     background-color: rgb(238, 235, 221);
     display: flex;
     flex-flow: column;
@@ -21,14 +62,16 @@ main{
     border: 1px solid black;
 }
 
-header{
+.upper-main{
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    column-gap: 15px;
+    
 }
 
-.mid{
+.lower-main{
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -38,16 +81,17 @@ header{
     height: 100%;
 }
 
-.upper-mid{
+.upper-list{
     display: flex;
     flex-flow: row;
     justify-content: center;
 }
 
-.lower-mid{
+.lower-list{
     display: flex;
     justify-content: center;
     row-gap: 0;
+    column-gap: 0;
 }
 
 .list{
@@ -56,14 +100,13 @@ header{
     list-style: none;
     display: flex;
     flex-flow: column;
-    justify-content: center;
-    justify-items: center;
     row-gap: 0;
     padding: 0;
 }
 
 .list-row {
     width: 100%;
+    height: auto;
     border-top: 1px solid black ;
     display: flex;
     flex-flow: row wrap;
@@ -71,6 +114,12 @@ header{
     column-gap: 0;
     align-items: center;
     text-align: center;
+    overflow-y: auto;
+    position: relative;
+}
+
+.list-row::-webkit-scrollbar{
+    display: none;
 }
 
 .list-row:hover{
@@ -79,7 +128,7 @@ header{
 }
 
 .to-do{
-    padding-left: 3%;
+    padding-left: 2%;
     text-align: left;
     width: 75%;
     height: 25px;
@@ -96,12 +145,12 @@ header{
     background-color: rgb(99, 0, 0);
 }
 
-i{  
+.list-row > i{  
     width: 5%;
     cursor: pointer;
 }
 
-i:hover{
+.list-row > i:hover{
     color: rgb(99, 0, 0);
     transition: 0.5s;
 }
@@ -120,25 +169,25 @@ button:hover{
     transition: 0.5s ease;
 }
 
-.upper-mid > input{
+.upper-list > input{
     border-right: none;
     width: 75%;
     height: 40px;
     font-size: larger;
 }
 
-.img{
+.upper-main > .img{
     transform: rotate(30deg);
 }
 
 footer{
+    width: 100%;
+    margin-top: 75px;
+    bottom: 0;
     display: flex;
     flex-flow: row;
-    margin-top: 30%;
-    align-content: center;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     font-size: medium;
     column-gap: 20px;
-    row-gap: 1px;
 }

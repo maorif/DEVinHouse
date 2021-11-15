@@ -4,10 +4,11 @@ function Add(){
     
     let newInput = document.querySelectorAll("input")[0];
 
-    NewRow(newInput.value);
-    newInput.value = "";        //limpa o input após adicionar tarefa
-    SaveListToLocalStorage();   //Salva a lista com a tarefa nova
-    DeleteRow();                //Aplica função de deletar à lista atualizada
+    let newRow = NewRow(newInput.value);
+    newInput.value = "";            //limpa o input após adicionar tarefa
+    DeleteRow(newRow.children[2]);  //Aplica função de deletar à lista atualizada
+    SaveListToLocalStorage();       //Salva a lista com a tarefa nova
+
 }
 
 //cria linha e appenda à lista de tarefas
@@ -38,7 +39,9 @@ function NewRow(newInput, done=false){
         newRow.appendChild(newCheckBox);
         newRow.appendChild(newDeleteBtn);
 
-        document.querySelectorAll(".list")[0].appendChild(newRow);
+        document.querySelectorAll(".list")[0].prepend(newRow);
+
+        return newRow;
     };
 };
 
@@ -100,29 +103,35 @@ function LoadListFromLocalStorage(){
         return;
     }
 
-    for(let i=0; i<toDoList.length; i++){
+    for(let i=(toDoList.length-1); i>=0; i--){
 
         NewRow(toDoList[i].text, toDoList[i].done);
     }
 }
 
 //adiciona função de deletar tarefa da lista ao clicar botão lixeira
-DeleteRow();
-function DeleteRow(){
+document.querySelectorAll(".fa-trash").forEach(btn => {
+   DeleteRow(btn);
+})
+    
+function DeleteRow(deleteBtn){
 
-    document.querySelectorAll(".fa-trash").forEach(icon => {
-        icon.addEventListener("click", () => {
-            
-            let confirm = window.confirm("Tem certeza que deseja excluir esta tarefa?");
-            
-            if(confirm){
-                icon.parentElement.remove();
-                SaveListToLocalStorage();
-            }
+    deleteBtn.addEventListener("click", () => {
+        let confirm = window.confirm("Tem certeza que deseja excluir esta tarefa?");
+        
+        if(confirm){
+            deleteBtn.parentElement.remove();
+            SaveListToLocalStorage();
+        }
+    })   
+}
 
-            else{
-                return;
-            }
-        })
+GoToTopPage();
+function GoToTopPage(){
+    document.querySelectorAll(".left-header")[0].addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"});
     })
 }
