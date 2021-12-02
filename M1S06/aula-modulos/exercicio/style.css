@@ -1,0 +1,27 @@
+main{
+    display: flex;
+    flex-flow: row;
+    column-gap: 50px;
+}
+
+.form{
+    display: flex;
+    flex-flow: column;
+    row-gap: 10px;
+    width: 400px;
+}
+
+.card{
+    border: 1px solid black;
+    width: 350px;
+    height: 400px;
+}
+
+#description{
+    height: 120px;
+}
+
+#card-img{
+    height: 150px;
+    width: 100px;
+}
