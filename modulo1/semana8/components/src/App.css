@@ -1,0 +1,94 @@
+main {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 100%;
+}
+main > div {
+    border-bottom: 1px solid black;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    height: 50px;
+}
+
+.contact-list {
+    height: 300px;
+    display: flex;
+    flex-flow: column;
+    row-gap: 10px;
+    padding: 15px;
+}
+
+.contact-card {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    column-gap: 10px;
+    justify-content: left;
+    align-items: center;
+}
+.contact-image-container > img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.post {
+    padding: 20px;
+    margin: 20px auto;
+    border: 1px solid black;
+    width: 80%;
+    
+    display: flex;
+    flex-flow: column;
+    row-gap: 10px;
+}
+
+.post-top {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.post-info {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    column-gap: 5px;
+}
+
+.post-account-photo-container > img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.post-image-container > img {
+    border-radius: 3%;
+}
+
+.post-bottom {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    row-gap: 10px;
+}
+
+.post-bottom-info {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+.post-comments-container {
+    display: flex;
+    flex-flow: row;
+    column-gap: 5px;
+}
+

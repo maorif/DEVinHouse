@@ -1,1 +1,0 @@
-Lista de exercícios do primeiro módulo da DEVinHouse
