@@ -1,7 +1,7 @@
 
 import './App.css';
 import Button from './components/Button';
-import ContactCard from './components/ContactsList';
+import ContactCard from './components/ContactCard';
 import Post from './components/Post';
 
 function App() {
