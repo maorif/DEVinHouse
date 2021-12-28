@@ -38,7 +38,7 @@ const Post = ({accountInfo, description, image}) => {
                         <p>Comments</p>
                     </div>
                     <div>
-                        <p>Share</p>
+                        <p><a href='#'>share</a></p>
                     </div>
                 </div>
                 <div>

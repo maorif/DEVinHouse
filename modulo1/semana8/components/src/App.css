@@ -43,10 +43,11 @@ button {
     padding: 20px;
     margin: 20px auto;
     border: 1px solid black;
-    width: 80%;
+    width: 600px;
     
     display: flex;
     flex-flow: column;
+    justify-content: center;
     row-gap: 10px;
 }
 
@@ -70,8 +71,13 @@ button {
     border-radius: 50%;
 }
 
+.post-image-container {
+    display: flex;
+    justify-content: center;
+}
 .post-image-container > img {
     border-radius: 3%;
+    width: 80%;
 }
 
 .post-bottom {
@@ -92,3 +98,49 @@ button {
     column-gap: 5px;
 }
 
+.product-list {
+    padding: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    gap: 20px;
+}
+.product-card{
+    width: 200px;
+    border: 1px solid black;
+    
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+
+}
+
+.product-card-image-container > img {
+    width: 60%;
+    margin: 10px 20% 0 20%;
+}
+
+.table-container {
+    width: 70%;
+    display: flex;
+    flex-flow: column;
+    row-gap: 10px;
+    text-align: center;
+    padding: 10px;
+}
+.table-container table, .table-container th, .table-container td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.table-container th {
+    height: 40px;
+    font-size: x-large;
+}
+
+.table-container td {
+    height: 35px;
+    font-size: large;
+}
