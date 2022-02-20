@@ -1,0 +1,15 @@
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/bin/Debug/net6.0/semana2
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/bin/Debug/net6.0/semana2.deps.json
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/bin/Debug/net6.0/semana2.runtimeconfig.json
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/bin/Debug/net6.0/semana2.dll
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/bin/Debug/net6.0/semana2.pdb
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/obj/Debug/net6.0/semana2.csproj.AssemblyReference.cache
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/obj/Debug/net6.0/semana2.GeneratedMSBuildEditorConfig.editorconfig
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/obj/Debug/net6.0/semana2.AssemblyInfoInputs.cache
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/obj/Debug/net6.0/semana2.AssemblyInfo.cs
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/obj/Debug/net6.0/semana2.csproj.CoreCompileInputs.cache
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/obj/Debug/net6.0/semana2.dll
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/obj/Debug/net6.0/refint/semana2.dll
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/obj/Debug/net6.0/semana2.pdb
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/obj/Debug/net6.0/semana2.genruntimeconfig.cache
+/home/maori/devinhouse/exercicios-github/modulo2/semana2/obj/Debug/net6.0/ref/semana2.dll

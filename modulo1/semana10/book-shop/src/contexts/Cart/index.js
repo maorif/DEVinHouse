@@ -28,7 +28,7 @@ export function CartProvider({ children }) {
     };
   
     setCart([...cart, newBook]);
-    localStorage.setItem("cart", JSON.stringify([...cart, book]));
+    localStorage.setItem("cart", JSON.stringify([...cart, newBook]));
     alert('Book added to cart');
   };
 

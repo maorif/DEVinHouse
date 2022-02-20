@@ -15,7 +15,7 @@ function Cart () {
     console.log(total);
     return (
         <Container>
-            <h2>Total: 
+            <h2>Total:
               {new Intl.NumberFormat(
                               'pt-BR',
                               { style: 'currency', currency: 'BRL' }
