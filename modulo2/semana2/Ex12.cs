@@ -31,23 +31,31 @@ public class Ex12 {
         while(!gameOver && numberOfPlays < 9){
             
             //player X turn
-            Console.WriteLine($"{player1}'s (X) turn. Type a position to mark!");
+            Console.WriteLine($"{player1}'s (X) turn. Type a position to mark! \n");
             string play1 = Console.ReadLine();
             (int r1, int c1) = GameEngine(play1);
-            if(t[r1, c1] != "-"){
-                    validPlay = false;
-                };
-            while(r1 == -1 || !validPlay){
-                Console.WriteLine("Type a valid position! (Ex: '1b')");
-                play1 = Console.ReadLine();
-                (r1, c1) = GameEngine(play1);
-
+            if(r1 != -1){
                 if(t[r1, c1] != "-"){
                     validPlay = false;
                 }
                 else{
                     validPlay = true;
-                }
+                };
+            };
+            while(r1 == -1 || !validPlay){
+                Console.WriteLine("Type a valid position! (Ex: '1b') \n");
+                play1 = Console.ReadLine();
+                (r1, c1) = GameEngine(play1);
+
+                if(r1 != -1){
+
+                    if(t[r1, c1] != "-"){
+                        validPlay = false;
+                    }
+                    else{
+                        validPlay = true;
+                    };
+                };
             };
 
             t.SetValue("X", r1, c1);
@@ -61,24 +69,38 @@ public class Ex12 {
             (gameOver, winner) = EndGameRule(t);
             numberOfPlays++;
 
+            if(gameOver || numberOfPlays >= 9){
+                break;
+            }
+
             //player O turn
-            Console.WriteLine($"{player2}'s (O) turn. Type a position to mark!");
+            Console.WriteLine($"{player2}'s (O) turn. Type a position to mark! \n");
             string play2 = Console.ReadLine();
             (int r2, int c2) = GameEngine(play2);
-            if(t[r2, c2] != "-"){
-                    validPlay = false;
-                };
-            while(r2 == -1 || !validPlay){
-                Console.WriteLine("Type a valid position! (Ex: '1b')");
-                play2 = Console.ReadLine();
-                (r2, c2) = GameEngine(play2);
+            if(r2 != -1){
 
                 if(t[r2, c2] != "-"){
                     validPlay = false;
                 }
                 else{
                     validPlay = true;
-                }
+                };
+            };
+            while(r2 == -1 || !validPlay){
+                Console.WriteLine("Type a valid position! (Ex: '1b') \n");
+                play2 = Console.ReadLine();
+                (r2, c2) = GameEngine(play2);
+
+                if(r2 != -1){
+
+                    if(t[r2, c2] != "-"){
+                        validPlay = false;
+                    }
+                    else{
+                        validPlay = true;
+                    };
+                };
+                    
             };
 
             t.SetValue("O", r2, c2);
@@ -92,7 +114,7 @@ public class Ex12 {
             (gameOver, winner) = EndGameRule(t);
 
             numberOfPlays++;
-            Console.WriteLine(numberOfPlays + winner);
+
         };
 
         if(winner == "X"){
