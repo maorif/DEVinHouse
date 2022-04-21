@@ -1,0 +1,13 @@
+1- dotnet new webapi -o Biblioteca.Api
+
+2- dotnet new classlib -o Biblioteca.Core
+
+2.5- cd Biblioteca.Api
+
+3- dotnet add reference ../Biblioteca.Core/Biblioteca.Core.csproj
+
+4-dotnet add package Newtonsoft.Json
+
+5- in /Biblioteca.Api/Program.cs -> var livro = new Livro();
+
+6- dotnet build

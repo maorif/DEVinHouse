@@ -1,0 +1,13 @@
+1- mkdir semana10
+
+2- dotnet new globaljson
+
+3- dotnet new console -o HelloWorldConsole
+
+3.5- cd HelloWorldConsole
+
+4- dotnet restore
+
+5- dotnet build]
+
+6- dotnet run

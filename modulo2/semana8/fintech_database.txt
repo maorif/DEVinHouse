@@ -1,0 +1,24 @@
+database: dev_in_bank
+------------------------------
+
+tabelas: clientes, contas, tipos de conta, transacões, agências, benefícios
+
+------------------------------
+
+clientes: ID serial, nome varchar(250), CPF varchar(14), endereco text
+
+agencia: ID serial, id_agencia int unique not null, descricao varchar(50)
+
+contas: ID serial, numero_conta varchar(50), tipo_conta int, CPF varchar(14) not null, id_agencia int not null,
+            constraint conta_agencia foreign key (id_agencia) references public.agencia (id_agencia),
+
+------------------------------
+
+saldo -> resultado da consulta das transacoes da conta
+
+------------------------------
+
+alterar dados -> function update
+
+------------------------------
+listagens -> (views)
